@@ -1,0 +1,159 @@
+object dm: Tdm
+  OnCreate = DataModuleCreate
+  Height = 238
+  Width = 383
+  object con: TFDConnection
+    Params.Strings = (
+      
+        'Database=C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\Banco\BA' +
+        'NCO.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'Port=3050'
+      'DriverID=FB')
+    Connected = True
+    Left = 24
+    Top = 8
+  end
+  object FBDriverLink1: TFDPhysFBDriverLink
+    Left = 296
+    Top = 8
+  end
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
+    Params = <>
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 59
+    Top = 171
+  end
+  object RESTClient1: TRESTClient
+    Params = <>
+    SynchronizedEvents = False
+    Left = 27
+    Top = 171
+  end
+  object RESTResponse1: TRESTResponse
+    Left = 91
+    Top = 171
+  end
+  object QrClientes: TFDQuery
+    Connection = con
+    SQL.Strings = (
+      'select * from tb_clientes')
+    Left = 48
+    Top = 96
+    object QrClientesCLI_ID: TIntegerField
+      DisplayLabel = 'ID'
+      FieldName = 'CLI_ID'
+      Origin = 'CLI_ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QrClientesCLI_TIPO: TStringField
+      DisplayLabel = 'Tipo'
+      FieldName = 'CLI_TIPO'
+      Origin = 'CLI_TIPO'
+      Size = 8
+    end
+    object QrClientesCLI_DOCUMENTO: TStringField
+      DisplayLabel = 'CPF / CNPJ'
+      FieldName = 'CLI_DOCUMENTO'
+      Origin = 'CLI_DOCUMENTO'
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QrClientesCLI_DATA_CADASTRO: TDateField
+      DisplayLabel = 'Dt Cadastro'
+      FieldName = 'CLI_DATA_CADASTRO'
+      Origin = 'CLI_DATA_CADASTRO'
+    end
+    object QrClientesCLI_ATIVO: TStringField
+      DisplayLabel = 'Ativo?'
+      FieldName = 'CLI_ATIVO'
+      Origin = 'CLI_ATIVO'
+      FixedChar = True
+      Size = 3
+    end
+    object QrClientesCLI_LAGRADOURO: TStringField
+      DisplayLabel = 'Lagradouro'
+      FieldName = 'CLI_LAGRADOURO'
+      Origin = 'CLI_LAGRADOURO'
+      Size = 200
+    end
+    object QrClientesCLI_NUMERO: TStringField
+      DisplayLabel = 'N'#176
+      FieldName = 'CLI_NUMERO'
+      Origin = 'CLI_NUMERO'
+      Size = 10
+    end
+    object QrClientesCLI_CEP: TStringField
+      DisplayLabel = 'CEP'
+      FieldName = 'CLI_CEP'
+      Origin = 'CLI_CEP'
+      FixedChar = True
+      Size = 8
+    end
+    object QrClientesCLI_BAIRRO: TStringField
+      DisplayLabel = 'Bairro'
+      FieldName = 'CLI_BAIRRO'
+      Origin = 'CLI_BAIRRO'
+      Size = 100
+    end
+    object QrClientesCLI_CIDADE: TStringField
+      DisplayLabel = 'Cidade'
+      FieldName = 'CLI_CIDADE'
+      Origin = 'CLI_CIDADE'
+      Size = 50
+    end
+    object QrClientesCLI_ESTADO: TStringField
+      DisplayLabel = 'Estado'
+      FieldName = 'CLI_ESTADO'
+      Origin = 'CLI_ESTADO'
+      FixedChar = True
+      Size = 2
+    end
+    object QrClientesCLI_PAIS: TStringField
+      DisplayLabel = 'Pa'#237's'
+      FieldName = 'CLI_PAIS'
+      Origin = 'CLI_PAIS'
+    end
+    object QrClientesCLI_NOME: TStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'CLI_NOME'
+      Origin = 'CLI_NOME'
+      Required = True
+      Size = 50
+    end
+    object QrClientesCLI_RG_IE: TStringField
+      DisplayLabel = 'RG / IE'
+      FieldName = 'CLI_RG_IE'
+      Origin = 'CLI_RG_IE'
+      Size = 12
+    end
+  end
+  object QrTelefones: TFDQuery
+    Connection = con
+    SQL.Strings = (
+      'select * from tb_telefones')
+    Left = 112
+    Top = 48
+    object QrTelefonesTEL_ID: TIntegerField
+      DisplayLabel = 'ID'
+      FieldName = 'TEL_ID'
+      Origin = 'TEL_ID'
+    end
+    object QrTelefonesTEL_CLI_ID: TIntegerField
+      DisplayLabel = 'Cliente ID'
+      FieldName = 'TEL_CLI_ID'
+      Origin = 'TEL_CLI_ID'
+    end
+    object QrTelefonesTEL_TELEFONE: TStringField
+      DisplayLabel = 'Telefone'
+      FieldName = 'TEL_TELEFONE'
+      Origin = 'TEL_TELEFONE'
+      Size = 15
+    end
+  end
+end

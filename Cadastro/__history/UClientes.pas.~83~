@@ -1,0 +1,339 @@
+unit UClientes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dxBarBuiltInMenu, cxGraphics,
+  cxControls, cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore, dxSkinBasic,
+  dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee,
+  dxSkinDarkroom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
+  dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast,
+  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
+  dxSkinMcSkin, dxSkinMetropolis, dxSkinMetropolisDark, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinOffice2013DarkGray,
+  dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinOffice2016Colorful,
+  dxSkinOffice2016Dark, dxSkinOffice2019Black, dxSkinOffice2019Colorful,
+  dxSkinOffice2019DarkGray, dxSkinOffice2019White, dxSkinPumpkin, dxSkinSeven,
+  dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
+  dxSkinSpringtime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
+  dxSkinTheBezier, dxSkinsDefaultPainters, dxSkinValentine,
+  dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
+  dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint,
+  dxSkinXmas2008Blue, cxPC, Vcl.Menus, cxContainer, cxEdit, cxCheckBox,
+  Vcl.StdCtrls, cxTextEdit, System.ImageList, Vcl.ImgList, cxImageList,
+  cxButtons, Vcl.ExtCtrls, cxStyles, cxCustomData, cxFilter, cxData,
+  cxDataStorage, cxNavigator, dxDateRanges, dxScrollbarAnnotations, Data.DB,
+  cxDBData, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid, cxDBEdit, cxMaskEdit,
+  cxDropDownEdit, acbrutil, cxBlobEdit, cxEditRepositoryItems;
+
+type
+  Tfrm_clientes = class(TForm)
+    cxPageControl1: TcxPageControl;
+    ts_pesquisa: TcxTabSheet;
+    Panel1: TPanel;
+    btn_excluir: TcxButton;
+    imagens: TcxImageList;
+    Panel2: TPanel;
+    ed_pesquisa: TcxTextEdit;
+    Label1: TLabel;
+    ck_pesquisa_ativo: TcxCheckBox;
+    btn_pesquisar: TcxButton;
+    btn_alterar: TcxButton;
+    btn_inserir: TcxButton;
+    Panel3: TPanel;
+    cxgrid_clientesDBTableView1: TcxGridDBTableView;
+    cxgrid_clientesLevel1: TcxGridLevel;
+    cxgrid_clientes: TcxGrid;
+    cxgrid_clientesDBTableView1CLI_ID: TcxGridDBColumn;
+    cxgrid_clientesDBTableView1CLI_DOCUMENTO: TcxGridDBColumn;
+    cxgrid_clientesDBTableView1CLI_DATA_CADASTRO: TcxGridDBColumn;
+    cxgrid_clientesDBTableView1CLI_ATIVO: TcxGridDBColumn;
+    cxgrid_clientesDBTableView1CLI_LAGRADOURO: TcxGridDBColumn;
+    cxgrid_clientesDBTableView1CLI_NUMERO: TcxGridDBColumn;
+    cxgrid_clientesDBTableView1CLI_CEP: TcxGridDBColumn;
+    cxgrid_clientesDBTableView1CLI_BAIRRO: TcxGridDBColumn;
+    cxgrid_clientesDBTableView1CLI_CIDADE: TcxGridDBColumn;
+    cxgrid_clientesDBTableView1CLI_ESTADO: TcxGridDBColumn;
+    cxgrid_clientesDBTableView1CLI_PAIS: TcxGridDBColumn;
+    cxgrid_clientesDBTableView1CLI_NOME: TcxGridDBColumn;
+    ts_manutencao: TcxTabSheet;
+    Label2: TLabel;
+    ed_id: TcxDBTextEdit;
+    ed_nome: TcxDBTextEdit;
+    Label3: TLabel;
+    Label4: TLabel;
+    Panel4: TPanel;
+    cxButton1: TcxButton;
+    cxButton2: TcxButton;
+    Label5: TLabel;
+    Label6: TLabel;
+    ed_cep: TcxDBTextEdit;
+    btn_busca_cep: TcxButton;
+    img_16: TcxImageList;
+    ed_lagradouro: TcxDBTextEdit;
+    Label7: TLabel;
+    ed_numero: TcxDBTextEdit;
+    Label8: TLabel;
+    ed_bairro: TcxDBTextEdit;
+    ed_cidade: TcxDBTextEdit;
+    ed_pais: TcxDBTextEdit;
+    ed_uf: TcxDBTextEdit;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    ed_documento: TcxDBTextEdit;
+    Label13: TLabel;
+    ed_rg_ie: TcxDBTextEdit;
+    Label14: TLabel;
+    cb_tipo: TcxDBComboBox;
+    cb_ativo: TcxDBComboBox;
+    ds_cli: TDataSource;
+    Panel5: TPanel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    ds_tel: TDataSource;
+    cxGrid1DBTableView1TEL_TELEFONE: TcxGridDBColumn;
+    ed_telefone: TcxTextEdit;
+    cxButton3: TcxButton;
+    PopupMenu1: TPopupMenu;
+    Deletar1: TMenuItem;
+    Label15: TLabel;
+    Label16: TLabel;
+    procedure btn_pesquisarClick(Sender: TObject);
+    procedure btn_excluirClick(Sender: TObject);
+    procedure btn_busca_cepClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btn_inserirClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btn_alterarClick(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
+    procedure cxButton2Click(Sender: TObject);
+    procedure ed_documentoExit(Sender: TObject);
+    procedure cxButton3Click(Sender: TObject);
+    procedure cxEditRepository1ButtonItem1PropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure Deletar1Click(Sender: TObject);
+  private
+    { Private declarations }
+    procedure ListaTelefones (cliente : integer);
+    procedure VerificaDuplicidadeDoc (documento : string);
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_clientes: Tfrm_clientes;
+
+implementation
+
+{$R *.dfm}
+
+uses Udm, Uutil;
+
+procedure Tfrm_clientes.btn_excluirClick(Sender: TObject);
+begin
+Case Application.MessageBox(PChar('Relamente deseja deletar o cliente:' + #13 + #13 + '' +
+    dm.QrClientescli_nome.asstring + '' + #13 + #13 + ''), 'Verificação de Ação',
+    MB_ICONQUESTION + MB_YESNOCANCEL) of
+    ID_YES:
+      dm.QrClientes.delete;
+  End;
+end;
+
+procedure Tfrm_clientes.btn_inserirClick(Sender: TObject);
+begin
+  ts_manutencao.Show;
+  dm.QrClientes.Insert;
+  cb_tipo.ItemIndex  := 0;
+  cb_ativo.ItemIndex := 0;
+end;
+
+procedure Tfrm_clientes.btn_pesquisarClick(Sender: TObject);
+begin
+  dm.QrClientes.close;
+  dm.QrClientes.sql.clear;
+  dm.QrClientes.sql.add('select * from tb_clientes where cli_nome like ');
+  dm.QrClientes.sql.add(QuotedStr('%'+stringReplace(ed_pesquisa.Text,' ','%',[rfReplaceAll])+ '%'));
+
+  if ck_pesquisa_ativo.Checked = true then
+  begin
+    dm.QrClientes.sql.add(' and cli_ativo = ''SIM'' ');
+  end else
+  begin
+    dm.QrClientes.sql.add(' and cli_ativo = ''NAO'' ');
+  end;
+
+  dm.QrClientes.sql.add('order by cli_nome asc');
+
+  dm.QrClientes.open;
+end;
+
+procedure Tfrm_clientes.cxButton1Click(Sender: TObject);
+begin
+   VerificaDuplicidadeDoc(ed_documento.Text);
+   if ed_nome.Text ='' then
+   begin
+      Application.MessageBox
+        ('O campo NOME precisa ser preenchido antes de gravar!',
+        'Erro de Tratamento', MB_ok + MB_defbutton1 + MB_iconexclamation);
+     Abort;
+   end;
+    if trim(cb_tipo.Text) = EmptyStr then
+    begin
+      Application.MessageBox
+        ('O ComboBox TIPO precisa ser preenchido',
+        'Erro de Tratamento', MB_ok + MB_defbutton1 + MB_iconexclamation);
+      abort;
+    end;
+   if ed_documento.Text ='' then
+   begin
+      Application.MessageBox
+        ('O campo CPF / CNPJ precisa ser preenchido antes de gravar!',
+        'Erro de Tratamento', MB_ok + MB_defbutton1 + MB_iconexclamation);
+     Abort;
+   end;
+
+  dm.QrClientesCLI_LAGRADOURO.AsString      := Uutil.removeacento(dm.QrClientesCLI_LAGRADOURO.AsString);
+  dm.QrClientesCLI_BAIRRO.AsString          := Uutil.removeacento(dm.QrClientesCLI_BAIRRO.AsString);
+  dm.QrClientesCLI_CIDADE.AsString          := Uutil.removeacento(dm.QrClientesCLI_CIDADE.AsString);
+  dm.QrClientesCLI_DATA_CADASTRO.asdatetime := now;
+  dm.QrClientes.post;
+
+  showmessage('Cliente cadastrado com sucesso!');
+  ts_pesquisa.Show;
+end;
+
+procedure Tfrm_clientes.cxButton2Click(Sender: TObject);
+begin
+ dm.QrClientes.Cancel;
+ ts_pesquisa.Show;
+end;
+
+procedure Tfrm_clientes.cxButton3Click(Sender: TObject);
+begin
+  ListaTelefones(dm.QrClientesCLI_ID.asinteger);
+
+    if dm.QrClientes.State in [dsInsert] then
+   begin
+    dm.QrUtil.close;
+    dm.QrUtil.sql.clear;
+    dm.QrUtil.sql.add('select GEN_ID(gen_tb_clientes_id,1) from TB_CLIENTES AUTOINC');
+    dm.QrUtil.open;
+    dm.QrUtil.last;
+   end;
+
+  dm.QrTelefones.insert;
+  dm.QrTelefonestel_cli_id.asinteger  := dm.QrUtil.fieldbyname('gen_id').asinteger+1;
+  dm.QrTelefonestel_telefone.asstring := Uutil.FormatarTelefone(ed_telefone.Text);
+  dm.QrTelefones.post;
+
+  ed_telefone.Clear;
+  showmessage('Telefone cadastrado com sucesso!');
+end;
+
+procedure Tfrm_clientes.cxEditRepository1ButtonItem1PropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+begin
+  showmessage(dm.QrTelefonesTEL_TELEFONE.asstring) ;
+end;
+
+procedure Tfrm_clientes.Deletar1Click(Sender: TObject);
+begin
+  Case Application.MessageBox(PChar('Realmente deseja deletar o telefone:' + #13 + #13 + '' +
+      dm.QrTelefonesTEL_TELEFONE.asstring + '' + #13 + #13 + ''), 'Verificação de Ação',
+      MB_ICONQUESTION + MB_YESNOCANCEL) of
+      ID_YES:
+
+      dm.QrTelefones.delete;
+  End;
+end;
+
+procedure Tfrm_clientes.ed_documentoExit(Sender: TObject);
+begin
+   VerificaDuplicidadeDoc(ed_documento.Text);
+   if Length(ed_documento.Text) >= 14 then
+   begin
+    dm.QrClientesCLI_TIPO.asstring := 'JURIDICA';
+    cb_tipo.ItemIndex                   := 1;
+   end else
+   begin
+    dm.QrClientesCLI_TIPO.asstring := 'FISICA';
+    cb_tipo.ItemIndex                   := 0;
+   end;
+end;
+
+procedure Tfrm_clientes.btn_alterarClick(Sender: TObject);
+begin
+  if dm.QrClientes.FieldByName('cli_id').AsInteger >= 1 then
+    begin
+     dm.QrClientes.Edit;
+     ListaTelefones(dm.QrClientesCLI_ID.AsInteger);
+     ts_manutencao.Show;
+    end else
+    begin
+      showmessage('Selecione um registro antes de editar!');
+    end;
+end;
+
+procedure Tfrm_clientes.btn_busca_cepClick(Sender: TObject);
+begin
+  BuscaCEP(OnlyNumber(ed_cep.Text));
+
+  dm.QrClientesCLI_LAGRADOURO.AsString := UpperCase(Uutil.lagradouro);
+  dm.QrClientesCLI_BAIRRO.asstring     := UpperCase(Uutil.bairro);
+  dm.QrClientesCLI_CIDADE.asstring     := UpperCase(Uutil.localidade);
+  dm.QrClientesCLI_ESTADO.asstring     := UpperCase(Uutil.uf);
+
+  ed_numero.SetFocus;
+end;
+
+procedure Tfrm_clientes.FormCreate(Sender: TObject);
+begin
+  ts_pesquisa.Show;
+  ts_manutencao.TabVisible := false;
+end;
+
+procedure Tfrm_clientes.FormShow(Sender: TObject);
+begin
+  //Pesquisa os ultimos 20 clientes ordenando pela data de cadastro mais recente ao mais antigo.
+  dm.QrClientes.close;
+  dm.QrClientes.sql.clear;
+  dm.QrClientes.sql.add('SELECT FIRST 20 * FROM TB_CLIENTES ORDER BY CLI_DATA_CADASTRO');
+  dm.QrClientes.open;
+
+
+end;
+
+procedure Tfrm_clientes.ListaTelefones(cliente: integer);
+begin
+  dm.QrTelefones.close;
+  dm.QrTelefones.sql.clear;
+  dm.QrTelefones.sql.add('select * from tb_telefones where tel_cli_id=:cliente');
+  dm.QrTelefones.parambyname('cliente').asinteger := dm.QrClientesCLI_ID.AsInteger;
+  dm.QrTelefones.open;
+end;
+
+procedure Tfrm_clientes.VerificaDuplicidadeDoc(documento: string);
+begin
+  dm.QrUtil.close;
+  dm.QrUtil.sql.clear;
+  dm.QrUtil.sql.add('select * from tb_clientes where cli_documento=:documento');
+  dm.QrUtil.parambyname('documento').asstring := documento;
+  dm.QrUtil.open;
+
+  if dm.QrUtil.recordcount > 0 then
+  begin
+      Application.MessageBox
+        ('Este CPF / CNPJ já esta cadastrado no sistema!',
+        'Erro de Tratamento', MB_ok + MB_defbutton1 + MB_ICONHAND);
+        abort;
+  end;
+end;
+
+end.

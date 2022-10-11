@@ -1,0 +1,47 @@
+unit Uutil;
+
+interface
+
+uses
+System.JSON,AcbrUtil;
+
+function BuscaCEP(cep : String) : Boolean;
+
+
+var
+  lagradouro : string;
+
+implementation
+
+uses Udm, REST.Types, System.SysUtils, Vcl.Dialogs;
+
+function BuscaCEP(cep : String) : Boolean;
+  var
+    Objeto : tjsonobject;
+begin
+  dm.RESTClient1.ResetToDefaults;
+  dm.RESTRequest1.ResetToDefaults;
+  dm.RESTResponse1.ResetToDefaults;
+
+  dm.RESTClient1.BaseURL :='https://viacep.com.br/ws/'+OnlyNumber(CEP)+'/json/';
+  dm.RESTRequest1.Method := TRESTrequestMethod.rmGET;
+
+  try
+    dm.RESTRequest1.Execute;
+  except
+    Result := false;
+    abort;
+  end;
+  try
+    Result := false;
+    Objeto := dm.RESTResponse1.JSONValue as TJSONObject;
+
+      Result     :=  true;
+      lagradouro := Objeto.GetValue('logradouro').Value;
+
+  except
+    Showmessage('Ocorreu algum erro ao consultar o CEP do cliente, tente novamente!');
+  end;
+end;
+
+end.

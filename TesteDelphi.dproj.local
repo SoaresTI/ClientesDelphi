@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/10/11 09:50:57.000.366,=C:\Users\PC01\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/10/11 09:53:51.000.558,C:\Users\PC01\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\Cadastro\UClientes.pas</Transaction>
+    <Transaction>2022/10/11 09:53:51.000.558,C:\Users\PC01\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\Cadastro\UClientes.dfm</Transaction>
+    <Transaction>2022/10/11 09:54:03.000.747,C:\Users\PC01\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\TesteDelphi.dproj</Transaction>
+    <Transaction>2022/10/11 10:07:27.000.677,=C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\Unit1.pas</Transaction>
+    <Transaction>2022/10/11 10:07:56.000.217,C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\Unit1.dfm=C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\Udm.dfm</Transaction>
+    <Transaction>2022/10/11 10:07:56.000.217,C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\Unit1.pas=C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\Udm.pas</Transaction>
+    <Transaction>2022/10/11 10:08:27.000.692,C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\Udm.pas=</Transaction>
+    <Transaction>2022/10/11 10:08:35.000.098,=C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\DM\Udm.pas</Transaction>
+    <Transaction>2022/10/11 11:07:43.000.204,=C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\Unit1.pas</Transaction>
+    <Transaction>2022/10/11 11:08:00.000.216,C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\Unit1.pas=C:\Users\PC01\Desktop\Felipe\Exercicios\DELPHI\Utilidades\Uutil.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,16 @@
+unit Uutil;
+
+interface
+
+function BuscaCEP(cep : String) : Boolean;
+
+implementation
+
+function BuscaCEP(cep : String) : Boolean;
+  var
+    Objeto : tjsonobject;
+begin
+
+end;
+
+end.
